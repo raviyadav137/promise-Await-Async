@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <h1 style="font-size: x-large;text-align: center;"><u>Promise Async Await</u></h1>
+    <h2 style="font-size: x-large;">Q1:Write one example explaining how you can write a callback function.</h2>
+    <pre style="font-size: x-large;">
+        function prod(a,b){
+            return a*b
+          }
+          function cb(name,prod){
+            console.log(`${name},${prod}`)
+          }
+          cb("jyoti",prod(10,20))
+    </pre>
+    <h2 style="font-size: x-large;">Q2:Write a callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+
+        Explain callback hell.
+        Numbers
+        1
+        2
+        3
+        4
+        5
+        6
+        7"</h2>
+        <pre style="font-size: x-large;">
+            setTimeout(()=>{
+                console.log("1");
+                setTimeout(()=>{
+                  console.log("2")
+                  setTimeout(()=>{
+                    setTimeout(()=>{
+                      console.log("3")
+                      setTimeout(()=>{
+                        console.log("4")
+                        setTimeout(()=>{
+                          console.log("5");
+                          setTimeout(()=>{
+                            console.log("6")
+                            setTimeout(()=>{
+                              console.log("7")
+                            },8000)
+                          },7000)
+                        },6000)
+                      },5000)
+                    },4000)
+                  },3000)
+                },2000)
+              },1000)
+        </pre>
+
+<h2 style="font-size: x-large;">Q2:Write the promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+
+  Numbers
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+</h2>
+        <pre style="font-size: x-large;">
+          const promise = new Promise((res,rej)=>{
+            setTimeout(()=>{
+              console.log("1")
+              setTimeout(()=>{
+                console.log("2")
+                setTimeout(()=>{
+                  console.log("3")
+                  setTimeout(()=>{
+                    console.log("4")
+                    setTimeout(()=>{
+                      console.log("5")
+                      setTimeout(()=>{
+                        console.log("6")
+                        setTimeout(()=>{
+                          console.log("7")
+                        },7000)
+                      },6000)
+                    },5000)
+                            
+                  },4000)
+                },3000)
+              },2000)
+            },1000)
+          })
+          promise.then((x)=>{
+            console.log(x)
+          }).catch((x)=>{
+            console.log(x)
+          })
+        </pre>
+        <h2 style="font-size: x-large;">Q3:Create a promise function accepting an argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, and if nothing is passed 
+          then it should go to reject the state and catch the error and print Promise Rejected "</h2>
+        <pre style="font-size: x-large;">
+            function myfunction(num){
+          const promise = new Promise(function(res,rej){
+            if(num%2===0){
+               res("its even")
+            }else{
+              rej ("its odd")
+            }
+          })
+          return promise; 
+        }
+        myfunction(50).then(function(data){
+          console.log(data)
+        }).catch(function(data){
+          console.log(data)
+        })
+        </pre>
+        <h2 style="font-size: x-large;">Q4:Create examples to explain callback function</h2>
+        <pre style="font-size: x-large;">
+          function sum(a,b){
+            return a*b
+          }
+          function cb(name,sum){
+            console.log(`${name},${sum}`)
+          }
+          cb("jyoti",sum(2,4))
+          </pre>
+        
+        <h2 style="font-size: x-large;">Q5:Create examples to explain promises function</h2>
+        <pre style="font-size: x-large;">
+          function myfunction(num){
+            const promise = new Promise (function(res,rej){
+              if(num%2===0){
+                res("its even")
+              }
+              else(num%2!== 0)
+                rej("its odd")
+              
+            })
+            return promise
+          }
+          
+          myfunction(34).then((x)=>{
+            console.log(x)
+          }).catch((x)=>{
+            console.log(x)
+          })
+          </pre>
+        <h2 style="font-size: x-large;">Q6:Create examples to explain async await function</h2>
+        <pre style="font-size: x-large;">function Myfunction(num) {
+
+          const anything=new Promise(function(resolve,reject){
+      
+            setTimeout(()=>{
+               if(num%2==0){
+              resolve("Its even")
+            }else{
+              reject("its odd")
+            }
+              
+            },1000)
+           
+            
+          })
+        return anything
+      }
+      async function GetDataError(){
+
+        try{
+          
+       let data= await  Myfunction(97);
+        console.log(data);
+        }catch(err){
+          console.log("Error here",err);
+        }
+      
+      
+        
+      }
+      
+      GetDataError();
+    </pre>
+    <h2 style="font-size: x-large;">Q7:Create examples to explain promise.all function</h2>
+    <pre style="font-size: x-large;">const promise =new Promise(function(res,rej){
+      let  x= "Ravi";
+      let y= "Yadav" 
+      if(x==y){
+        res();
+      }else{
+        rej();
+      }
+    })
+    promise.then(function(){
+      console.log("sucess,you name is prfect")
+    }).catch(function(){
+      console.log("some error")
+    })</pre>
+</body>
+</html>
